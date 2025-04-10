@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  padding: 1em 1em;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 1px 10px 5px rgba(17, 12, 46, 0.15) ;
+}
+
+.header__title {
+  font-family: winky-rough;
+  margin: 0;
+}
+
+.navbar__list {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__item:global(:not(:has(.lucide))) {
+  display: block;
+  padding: 0.2em 0.4em;
+}

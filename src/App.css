@@ -1,0 +1,15 @@
+@font-face {
+  font-family: winky-rough;
+  font-weight: 300;
+  src: url(./assets/Winky_Rough/static/WinkyRough-Light.ttf);
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+svg,
+img {
+  display: block;
+}
