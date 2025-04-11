@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Home.module.css';
 import Button from '../../components/Button/Button';
 import { ExternalLink } from 'lucide-react';
@@ -9,7 +8,7 @@ const Home = () => {
     <main className={styles.homeContainer}>
       <h2 className={styles.home__header}>Neil Shop</h2>
       <div>
-        <Link to={'/'}>
+        <Link to={'shop'}>
           <Button>
             Shopping now{' '}
             <ExternalLink color='black' size={16} strokeWidth={2} />

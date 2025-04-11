@@ -7,10 +7,22 @@
  border-radius: 0.5em;
 }
 
+.btn:hover {
+  cursor: pointer;
+}
+
 .green {
   background: #a1e293;
 }
 
+.green:hover {
+  background: #81b475;
+}
+
 .red {
   background: #f96464;
+}
+
+.red:hover {
+  background: #b84747;
 }

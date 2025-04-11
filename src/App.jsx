@@ -4,7 +4,6 @@ import './App.css';
 import { Outlet } from 'react-router';
 
 const App = ({ children }) => {
-  console.log(children)
   return (
     <>
       <Navbar />

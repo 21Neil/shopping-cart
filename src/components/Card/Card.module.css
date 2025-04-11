@@ -1,0 +1,87 @@
+.card {
+  border: 1px solid #a7a7a7;
+  border-radius: 0.5em;
+  width: 300px;
+  overflow: hidden;
+}
+
+.card__imgContainer {
+  position: relative;
+  border-bottom: 1px solid #a7a7a7;
+  height: 200px;
+}
+
+.card__imgContainer img {
+  width: 100%;
+}
+
+.addToCart {
+  background: rgba(0, 0, 0, 0.5);
+  width: 300px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.card__quantityContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantityInput {
+  color: #ffffff;
+  background: none;
+  border: none;
+  padding: 0.1em;
+  font-size: 2em;
+  width: 60px;
+  font-weight: 300;
+  outline: none;
+  text-align: center;
+}
+
+.card__quantityContainer button {
+  background: none;
+  border: none;
+}
+
+.card__quantityContainer button:hover {
+  cursor: pointer;
+}
+
+.addToCart > button {
+  position: absolute;
+  bottom: 1em;
+}
+
+.quantityInput::-webkit-outer-spin-button,
+.quantityInput::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.card__content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.8em 1em;
+}
+
+.card__contentTittle {
+  font-weight: normal;
+  margin: 0 auto;
+}
+
+.card__contentPrice {
+  position: absolute;
+  right: 1em;
+  margin: 0;
+}

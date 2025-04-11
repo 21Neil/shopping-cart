@@ -16,10 +16,10 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link className={styles.navbar__item}>Shop</Link>
+            <Link to={'shop'} className={styles.navbar__item}>Shop</Link>
           </li>
           <li>
-            <Link className={styles.navbar__item}>
+            <Link to={'shop'} className={styles.navbar__item}>
               <ShoppingBag color='black' size={28} strokeWidth={1.5} />
             </Link>
           </li>
