@@ -1,0 +1,16 @@
+.btn {
+ padding: 0.8em 1em;
+ display: flex;
+ gap: 0.5em;
+ align-items: center;
+ border: none;
+ border-radius: 0.5em;
+}
+
+.green {
+  background: #a1e293;
+}
+
+.red {
+  background: #f96464;
+}
