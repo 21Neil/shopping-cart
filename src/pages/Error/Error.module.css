@@ -1,0 +1,10 @@
+.errorContainer {
+  display: flex;
+  justify-content: center;;
+  padding: 6em 1em;
+}
+
+.error__header { 
+  margin: 0;
+  font-size: 2.5rem;
+}

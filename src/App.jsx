@@ -1,15 +1,16 @@
-import React from 'react'
-import Navbar from './components/Navbar/Navbar'
+import React from 'react';
+import Navbar from './components/Navbar/Navbar';
 import './App.css';
 import { Outlet } from 'react-router';
 
-const App = () => {
+const App = ({ children }) => {
+  console.log(children)
   return (
     <>
       <Navbar />
-      <Outlet />
+      {children ?? <Outlet />}
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
