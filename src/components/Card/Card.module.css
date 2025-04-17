@@ -3,6 +3,12 @@
   border-radius: 0.5em;
   width: 300px;
   overflow: hidden;
+  padding: 0;
+  background: none;
+}
+
+.card:hover {
+  cursor: pointer;
 }
 
 .card__imgContainer {
@@ -13,6 +19,8 @@
 
 .card__imgContainer img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .addToCart {
@@ -22,9 +30,31 @@
   position: absolute;
   top: 0;
   left: 0;
-  visibility: hidden;
   display: flex;
   justify-content: center;
+  opacity: 0;
+}
+
+.fadeIn {
+  animation: fade-in 500ms forwards
+}
+
+.fadeOut {
+  animation: fade-out 500ms forwards
+}
+
+@keyframes fade-in {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fade-out {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+.visible {
+  opacity: 1;
 }
 
 .card__quantityContainer {
@@ -45,12 +75,17 @@
   text-align: center;
 }
 
-.card__quantityContainer button {
+.card__quantityContainer button,
+.addToCart__closeBtn {
   background: none;
   border: none;
+  padding: 0;
+  height: 48px;
+  width: 48px;
 }
 
-.card__quantityContainer button:hover {
+.card__quantityContainer button:hover,
+.addToCart__closeBtn:hover {
   cursor: pointer;
 }
 
@@ -59,13 +94,16 @@
   bottom: 1em;
 }
 
+.addToCart__closeBtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 36px;
+}
+
 .quantityInput::-webkit-outer-spin-button,
 .quantityInput::-webkit-inner-spin-button {
   appearance: none;
-}
-
-.visible {
-  visibility: visible;
 }
 
 .card__content {
