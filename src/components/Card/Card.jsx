@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './Card.module.css';
-import { Minus, Plus, X } from 'lucide-react';
 import Button from '../Button/Button';
 
 const AddToCart = ({
@@ -13,7 +12,7 @@ const AddToCart = ({
   const addToCartRef = useRef(null);
 
   const quantityChange = e => {
-    if (e.target.value.length > 3) return;
+    if (e.target.value.length > 2) return;
     setValue(e.target.value);
   };
 
@@ -23,7 +22,7 @@ const AddToCart = ({
   };
 
   const plusClick = () => {
-    if (+value === 999) return;
+    if (+value === 99) return;
     setValue(+value + 1);
   };
 
@@ -53,12 +52,14 @@ const AddToCart = ({
       }`}
       data-testid='add-to-cart'
     >
-      <button aria-label='close-btn' className={styles.addToCart__closeBtn} onClick={handleClose}>
-        <X color='white' size={36} strokeWidth={1} />
-      </button>
+      <button
+        aria-label='close-btn'
+        className={styles.addToCart__closeBtn}
+        onClick={handleClose}
+      />
       <div className={styles.card__quantityContainer}>
         <button onClick={minusClick} aria-label='minus-btn'>
-          <Minus color='white' size={48} strokeWidth={1} />
+          -
         </button>
         <input
           type='number'
@@ -70,10 +71,12 @@ const AddToCart = ({
           onChange={quantityChange}
         />
         <button onClick={plusClick} aria-label='plus-btn'>
-          <Plus color='white' size={48} strokeWidth={1} />
+          +
         </button>
       </div>
-      <Button onClick={handleAdd}>Add to cart</Button>
+      <Button className={styles.addToCart__addToCartBtn} onClick={handleAdd}>
+        Add to cart
+      </Button>
     </div>
   );
 };
@@ -95,7 +98,14 @@ const Card = () => {
   };
 
   return (
-    <div className={styles.card} onClick={handleShow} data-testid='card'>
+    <div
+      className={
+        styles.card +
+        (showAddToCart || isAnimating ? '' : ` ${styles.cardPointer}`)
+      }
+      onClick={handleShow}
+      data-testid='card'
+    >
       <div className={styles.card__imgContainer}>
         <img
           src='https://cdn.pixabay.com/photo/2018/03/08/18/13/chair-3209341_960_720.jpg'

@@ -16,6 +16,10 @@ const routes = [
       {
         path: 'shop',
         element: <Shop />
+      },
+      {
+        path: 'shop/cart',
+        element: <Shop cart />
       }
     ]
   },

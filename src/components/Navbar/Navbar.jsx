@@ -19,7 +19,7 @@ const Navbar = () => {
             <Link to={'shop'} className={styles.navbar__item}>Shop</Link>
           </li>
           <li>
-            <Link to={'shop'} className={styles.navbar__item}>
+            <Link to={'shop/cart'} className={styles.navbar__item}>
               <ShoppingBag color='black' size={28} strokeWidth={1.5} />
             </Link>
           </li>

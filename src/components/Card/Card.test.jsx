@@ -49,10 +49,10 @@ describe('Card component', () => {
     await user.click(plusBtn)
     expect(quantityInput.value).toBe('2')
 
-    await user.type(quantityInput, '{backspace}999')
+    await user.type(quantityInput, '{backspace}99')
     await user.click(plusBtn)
 
-    expect(quantityInput.value).toBe('999')
+    expect(quantityInput.value).toBe('99')
   });
 
   it('minus', async () => {
@@ -83,8 +83,8 @@ describe('Card component', () => {
     await user.click(card);
     const quantityInput = screen.getByRole('spinbutton', {name: 'quantity'})
 
-    await user.type(quantityInput, '999')
+    await user.type(quantityInput, '99')
     
-    expect(quantityInput.value).toBe('199')
+    expect(quantityInput.value).toBe('19')
   })
 });

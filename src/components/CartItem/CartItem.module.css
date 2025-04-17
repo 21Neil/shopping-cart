@@ -1,0 +1,20 @@
+.cartItem__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1em 0;
+  border-bottom: 1px solid #a5a5a5;
+}
+
+.cartItem__imgContainer {
+  width: 50px;
+  height: 50px;
+  border-radius: 0.5em;
+  overflow: hidden;
+}
+
+.cartItem__deleteBtn {
+  background: none;
+  border: none;
+  color: #cf0000;
+}

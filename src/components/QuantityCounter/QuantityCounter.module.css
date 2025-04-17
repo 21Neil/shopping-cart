@@ -1,0 +1,37 @@
+.quantityCounter__container {
+  border: 1px solid #a5a5a5;
+  border-radius: 0.35em;
+  display: inline-block;
+  background: #f2f2f2;
+  color: #5a5a5a;
+}
+
+.quantityCounter__btn {
+  background: none;
+  border: none;
+  width: 1.15em;
+  padding: 0;
+  font-family: poppins;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+
+.quantityCounter__input {
+  width: 1.25em;
+  border-width: 0 1px 0 1px;
+  border-style: solid;
+  border-color: #a5a5a5;
+  border-radius: 0;
+  font-family: poppins;
+  font-size: 0.875rem;
+  font-weight: 300;
+  padding: 0.15em;
+  text-align: center;
+  appearance: textfield;
+}
+
+.quantityCounter__input::-webkit-outer-spin-button,
+.quantityCounter__input::-webkit-inner-spin-button {
+  appearance: none;
+}
+

@@ -5,10 +5,7 @@
  align-items: center;
  border: none;
  border-radius: 0.5em;
-}
-
-.btn:hover {
-  cursor: pointer;
+ color: #000;
 }
 
 .green {
