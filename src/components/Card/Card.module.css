@@ -110,16 +110,17 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0.8em 1em;
 }
 
 .card__contentTittle {
   font-weight: normal;
-  margin: 0 auto;
+  margin: 0;
+  font-size: 1rem;
 }
 
 .card__contentPrice {
-  position: absolute;
   right: 1em;
   margin: 0;
 }

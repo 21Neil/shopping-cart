@@ -3,30 +3,32 @@ import styles from './Card.module.css';
 import Button from '../Button/Button';
 
 const AddToCart = ({
-  value,
-  setValue,
   showAddToCart,
   handleClose,
   setIsAnimating,
+  addToCart,
+  item,
 }) => {
+  const [quantity, setQuantity] = useState(1);
   const addToCartRef = useRef(null);
 
   const quantityChange = e => {
     if (e.target.value.length > 2) return;
-    setValue(e.target.value);
+    setQuantity(e.target.value);
   };
 
   const minusClick = () => {
-    if (+value === 1) return;
-    setValue(+value - 1);
+    if (+quantity === 1) return;
+    setQuantity(+quantity - 1);
   };
 
   const plusClick = () => {
-    if (+value === 99) return;
-    setValue(+value + 1);
+    if (+quantity === 99) return;
+    setQuantity(+quantity + 1);
   };
 
   const handleAdd = e => {
+    addToCart({ ...item, quantity });
     handleClose(e);
   };
 
@@ -67,7 +69,7 @@ const AddToCart = ({
           className={styles.quantityInput}
           max={99}
           min={1}
-          value={value}
+          value={quantity}
           onChange={quantityChange}
         />
         <button onClick={plusClick} aria-label='plus-btn'>
@@ -81,9 +83,8 @@ const AddToCart = ({
   );
 };
 
-const Card = () => {
+const Card = ({ item, addToCart }) => {
   const [showAddToCart, setShowAddToCart] = useState(false);
-  const [value, setValue] = useState(1);
   const [isAnimating, setIsAnimating] = useState(false);
 
   const handleShow = () => {
@@ -107,19 +108,20 @@ const Card = () => {
       data-testid='card'
     >
       <div className={styles.card__imgContainer}>
-        <img
-          src='https://cdn.pixabay.com/photo/2018/03/08/18/13/chair-3209341_960_720.jpg'
-          alt=''
-        />
+        <img src={item.image} alt={item.title} />
         {(showAddToCart || isAnimating) && (
           <AddToCart
-            {...{ value, setValue, showAddToCart, handleClose, setIsAnimating }}
+            {...{ showAddToCart, handleClose, setIsAnimating, addToCart, item }}
           />
         )}
       </div>
       <div className={styles.card__content}>
-        <h3 className={styles.card__contentTittle}>test</h3>
-        <p className={styles.card__contentPrice}>$ 100</p>
+        <h3 className={styles.card__contentTittle}>
+          {item.title.length > 40
+            ? `${item.title.slice(0, 40)}...`
+            : item.title}
+        </h3>
+        <p className={styles.card__contentPrice}>${item.price}</p>
       </div>
     </div>
   );
