@@ -9,8 +9,18 @@ const api = 'https://fakestoreapi.com/products';
 const CardContainer = ({ addToCart }) => {
   const { data, error, loading } = useFetch(api);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>A network error was encountered</p>;
+  if (loading)
+    return (
+      <main className={styles.shopContainer}>
+        <h2>Loading...</h2>
+      </main>
+    );
+  if (error)
+    return (
+      <main className={styles.shopContainer}>
+        <h2>A network error was encountered</h2>
+      </main>
+    );
 
   return (
     <main className={styles.shopContainer}>
@@ -28,8 +38,10 @@ const Shop = ({ cart }) => {
   const addToCart = item => {
     const tempCart = [...cartItems];
     const target = tempCart.find(tempItem => tempItem.id === item.id);
+
     if (target) target.quantity = target.quantity + item.quantity;
     if (!target) tempCart.push(item);
+    
     setCartItems([...tempCart]);
   };
 

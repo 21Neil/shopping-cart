@@ -14,11 +14,12 @@ const AddToCart = ({
 
   const quantityChange = e => {
     if (e.target.value.length > 2) return;
+    if (+e.target.value < 0) return setQuantity(1);
     setQuantity(e.target.value);
   };
 
   const minusClick = () => {
-    if (+quantity === 1) return;
+    if (+quantity <= 1) return;
     setQuantity(+quantity - 1);
   };
 
@@ -28,6 +29,7 @@ const AddToCart = ({
   };
 
   const handleAdd = e => {
+    if (isNaN(Number(quantity))) return;
     addToCart({ ...item, quantity });
     handleClose(e);
   };
@@ -60,7 +62,7 @@ const AddToCart = ({
         onClick={handleClose}
       />
       <div className={styles.card__quantityContainer}>
-        <button onClick={minusClick} aria-label='minus-btn'>
+        <button onClick={minusClick}>
           -
         </button>
         <input
@@ -72,7 +74,7 @@ const AddToCart = ({
           value={quantity}
           onChange={quantityChange}
         />
-        <button onClick={plusClick} aria-label='plus-btn'>
+        <button onClick={plusClick}>
           +
         </button>
       </div>
