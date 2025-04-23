@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './Card.module.css';
 import Button from '../Button/Button';
+import useQuantityCounter from '../../hooks/useQuantityCounter/useQuantityCounter';
 
 const AddToCart = ({
   showAddToCart,
@@ -9,24 +10,9 @@ const AddToCart = ({
   addToCart,
   item,
 }) => {
-  const [quantity, setQuantity] = useState(1);
+  const { quantity, quantityChange, minusClick, plusClick } =
+    useQuantityCounter(1);
   const addToCartRef = useRef(null);
-
-  const quantityChange = e => {
-    if (e.target.value.length > 2) return;
-    if (+e.target.value < 0) return setQuantity(1);
-    setQuantity(e.target.value);
-  };
-
-  const minusClick = () => {
-    if (+quantity <= 1) return;
-    setQuantity(+quantity - 1);
-  };
-
-  const plusClick = () => {
-    if (+quantity === 99) return;
-    setQuantity(+quantity + 1);
-  };
 
   const handleAdd = e => {
     if (isNaN(Number(quantity))) return;
@@ -62,9 +48,7 @@ const AddToCart = ({
         onClick={handleClose}
       />
       <div className={styles.card__quantityContainer}>
-        <button onClick={minusClick}>
-          -
-        </button>
+        <button onClick={minusClick}>-</button>
         <input
           type='number'
           aria-label='quantity'
@@ -74,9 +58,7 @@ const AddToCart = ({
           value={quantity}
           onChange={quantityChange}
         />
-        <button onClick={plusClick}>
-          +
-        </button>
+        <button onClick={plusClick}>+</button>
       </div>
       <Button className={styles.addToCart__addToCartBtn} onClick={handleAdd}>
         Add to cart

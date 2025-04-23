@@ -52,44 +52,6 @@ describe('Card component', () => {
     await waitFor(() => expect(addToCartEle2).not.toBeInTheDocument());
   });
 
-  it('plus, minus, and input', async () => {
-    const user = userEvent.setup();
-    const addToCart = vi.fn();
-
-    render(<Card {...{ item, addToCart }} />);
-
-    const card = screen.getByTestId('card');
-    await user.click(card);
-
-    const plusBtn = screen.getByRole('button', { name: '+' });
-    const minusBtn = screen.getByRole('button', { name: '-' });
-    const quantityInput = screen.getByRole('spinbutton', { name: 'quantity' });
-    await user.click(plusBtn);
-    expect(quantityInput.value).toBe('2');
-
-    await user.type(quantityInput, '{backspace}99');
-    await user.click(plusBtn);
-    expect(quantityInput.value).toBe('99');
-
-    await user.type(quantityInput, '{backspace}{backspace}1')
-    await user.click(minusBtn)
-    expect(quantityInput.value).toBe('1')
-
-    await user.type(quantityInput, '{backspace}2');
-    await user.click(minusBtn);
-    expect(quantityInput.value).toBe('1');
-
-    await user.type(quantityInput, '99');
-    expect(quantityInput.value).toBe('19');
-
-    await user.type(quantityInput, '{backspace}{backspace}')
-    expect(quantityInput.value).toBe('');
-
-    await user.type(quantityInput, '{backspace}{backspace}-1')
-    expect(quantityInput.value).toBe('1');
-
-  });
-
   it('call addToCart with correct quantity', async () => {
     const user = userEvent.setup();
     const addToCart = vi.fn();
