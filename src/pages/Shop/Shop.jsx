@@ -1,8 +1,8 @@
 import Card from '../../components/Card/Card';
 import styles from './Shop.module.css';
 import Cart from '../../components/Cart/Cart';
-import useFetch from '../../hooks/useFetch';
-import { useState } from 'react';
+import useFetch from '../../hooks/useFetch/useFetch';
+import { useOutletContext } from 'react-router';
 
 const api = 'https://fakestoreapi.com/products';
 
@@ -32,8 +32,7 @@ const CardContainer = ({ addToCart }) => {
 };
 
 const Shop = ({ cart }) => {
-  const [cartItems, setCartItems] = useState([]);
-  console.log(cartItems);
+  const [cartItems, setCartItems] = useOutletContext();
 
   const addToCart = item => {
     const tempCart = [...cartItems];
@@ -41,11 +40,19 @@ const Shop = ({ cart }) => {
 
     if (target) target.quantity = target.quantity + item.quantity;
     if (!target) tempCart.push(item);
-    
+
     setCartItems([...tempCart]);
   };
 
-  return <>{cart ? <Cart /> : <CardContainer {...{ addToCart }} />}</>;
+  return (
+    <>
+      {cart ? (
+        <Cart {...{ cartItems }} />
+      ) : (
+        <CardContainer {...{ addToCart }} />
+      )}
+    </>
+  );
 };
 
 export default Shop;
