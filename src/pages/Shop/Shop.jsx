@@ -32,17 +32,7 @@ const CardContainer = ({ addToCart }) => {
 };
 
 const Shop = ({ cart }) => {
-  const [cartItems, setCartItems] = useOutletContext();
-
-  const addToCart = item => {
-    const tempCart = [...cartItems];
-    const target = tempCart.find(tempItem => tempItem.id === item.id);
-
-    if (target) target.quantity = target.quantity + item.quantity;
-    if (!target) tempCart.push(item);
-
-    setCartItems([...tempCart]);
-  };
+  const [cartItems, addToCart] = useOutletContext();
 
   return (
     <>

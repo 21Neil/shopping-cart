@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import './App.css';
 import { Outlet } from 'react-router';
+import useCart from './hooks/useCart/useCart';
 
 const App = ({ children }) => {
-  const [cartItems, setCartItems] = useState([])
+  const {cartItems, addToCart} = useCart()
+  
   return (
     <>
       <Navbar />
-      {children ?? <Outlet context={[cartItems, setCartItems]} />}
+      {children ?? <Outlet context={[cartItems, addToCart]} />}
     </>
   );
 };
