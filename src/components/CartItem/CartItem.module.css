@@ -13,8 +13,20 @@
   overflow: hidden;
 }
 
+.cartItem__title {
+  font-size: 0.9rem;
+  font-weight: normal;
+  width: 40%;
+}
+
+.cartItem__price {
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
 .cartItem__deleteBtn {
   background: none;
   border: none;
   color: #cf0000;
+  padding: 0.25em;
 }
