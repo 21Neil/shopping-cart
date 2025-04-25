@@ -24,3 +24,23 @@
   display: block;
   padding: 0.2em 0.4em;
 }
+
+.navbar__item:global(:has(.lucide)) {
+  position: relative;
+}
+
+.cartItemQuantity {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  background: #ff0606bb;
+  color: #ffffff;
+  font-size: 0.7rem;
+  width: 1em;
+  height: 1em;
+  padding: 0.2em;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
