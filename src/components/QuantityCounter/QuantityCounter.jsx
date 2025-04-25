@@ -2,12 +2,23 @@ import React from 'react';
 import styles from './QuantityCounter.module.css';
 import useQuantityCounter from '../../hooks/useQuantityCounter/useQuantityCounter';
 
-const QuantityCounter = ({ value }) => {
+const QuantityCounter = ({ value, counterUpdateQuantity }) => {
   const { quantity, quantityChange, minusClick, plusClick } =
     useQuantityCounter(value);
+
+  const handleMinus = () => {
+    minusClick();
+    counterUpdateQuantity(value - 1);
+  }
+
+  const handlePlus = () =>{
+    plusClick();
+    counterUpdateQuantity(value + 1)
+  }
+
   return (
     <div className={styles.quantityCounter__container}>
-      <button className={styles.quantityCounter__btn} onClick={minusClick}>
+      <button className={styles.quantityCounter__btn} onClick={handleMinus}>
         -
       </button>
       <input
@@ -16,7 +27,7 @@ const QuantityCounter = ({ value }) => {
         value={quantity}
         onChange={quantityChange}
       />
-      <button className={styles.quantityCounter__btn} onClick={plusClick}>
+      <button className={styles.quantityCounter__btn} onClick={handlePlus}>
         +
       </button>
     </div>

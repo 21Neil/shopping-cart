@@ -32,12 +32,12 @@ const CardContainer = ({ addToCart }) => {
 };
 
 const Shop = ({ cart }) => {
-  const [cartItems, addToCart] = useOutletContext();
+  const [addToCart, updateQuantity, removeFromCart, getItem, getTotal] = useOutletContext();
 
   return (
     <>
       {cart ? (
-        <Cart {...{ cartItems }} />
+        <Cart {...{ updateQuantity, removeFromCart, getItem, getTotal }} />
       ) : (
         <CardContainer {...{ addToCart }} />
       )}
