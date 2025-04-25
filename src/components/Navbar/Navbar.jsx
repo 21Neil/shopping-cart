@@ -19,8 +19,10 @@ const Navbar = ({ cartItemQuantity }) => {
           <li className={styles.navbar__item}>
             <Link to={'shop/cart'}>
               <ShoppingBag color='black' size={28} strokeWidth={1.5} />
+              <span className={styles.cartItemQuantity}>
+                {cartItemQuantity > 99 ? 99 : cartItemQuantity}
+              </span>
             </Link>
-            <span className={styles.cartItemQuantity}>{cartItemQuantity > 99 ? 99 : cartItemQuantity}</span>
           </li>
         </ul>
       </nav>
