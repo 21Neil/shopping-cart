@@ -23,6 +23,7 @@ const useCart = () => {
   };
 
   const updateQuantity = (id, quantity) => {
+    if (quantity < 1 || quantity > 99) return
     setItemById(prev => ({
       ...prev,
       [id]: {

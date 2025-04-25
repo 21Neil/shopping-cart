@@ -11,9 +11,14 @@ const QuantityCounter = ({ value, counterUpdateQuantity }) => {
     counterUpdateQuantity(value - 1);
   }
 
-  const handlePlus = () =>{
+  const handlePlus = () =>{ 
     plusClick();
     counterUpdateQuantity(value + 1)
+  }
+
+  const handleInput = (e) => {
+    quantityChange(e);
+    counterUpdateQuantity(+e.target.value)
   }
 
   return (
@@ -25,7 +30,7 @@ const QuantityCounter = ({ value, counterUpdateQuantity }) => {
         className={styles.quantityCounter__input}
         type='number'
         value={quantity}
-        onChange={quantityChange}
+        onChange={handleInput}
       />
       <button className={styles.quantityCounter__btn} onClick={handlePlus}>
         +
